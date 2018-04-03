@@ -13,7 +13,7 @@ module Coconut
   def self.submit(config_content, api_key=nil)
     api_key ||= API_KEY
     uri = URI("#{COCONUT_URL}/v1/job")
-    headers = {"User-Agent" => USER_AGENT, "Content-Type" => "text/plain", "Accept" => "application/json"}
+    headers = {"User-Agent" => USER_AGENT, "Content-Type" => "text/plain", "Accept" => "application/json", "Access-Control-Allow-Origin" => "https://ammo-tube.herokuapp.com"}
 
     req = Net::HTTP::Post.new(uri.path, headers)
     req.basic_auth api_key, ''
